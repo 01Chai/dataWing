@@ -1,94 +1,152 @@
-:root{
-  --bg:#050507;
-  --muted:#9aa3b2;
-  --glass: rgba(255,255,255,0.04);
-  --accent:#ff4d57;
-  --light:#f5f7fb;
-  --card-border: rgba(255,255,255,0.06);
-  --glass-2: rgba(255,255,255,0.02);
-  --max-width:1100px;
-  --radius:14px;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%;}
-
+/* === RESET & BASE === */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
 body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  background:var(--bg);
-  color:var(--light);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.4;
+  font-family: "Poppins", sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
 }
 
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
-
-/* NAV */
-.nav{position:fixed;left:0;right:0;top:16px;z-index:60;display:flex;justify-content:center;padding:0 16px}
-.nav-inner{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#9ec6ff);box-shadow:0 3px 18px rgba(255,77,87,0.08);display:flex;align-items:center;justify-content:center;font-weight:800}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{padding:8px 4px;border-radius:8px;font-weight:500;color:var(--muted);transition:color .18s}
-.nav-links a:hover{color:var(--light)}
-.cta{padding:8px 14px;border-radius:10px;background:linear-gradient(90deg, rgba(255,77,87,0.12), rgba(158,198,255,0.04));border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px);font-weight:600}
-
-/* HERO */
-.hero{min-height:86vh;display:grid;grid-template-columns:1fr 420px;align-items:center;margin-top:28px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center center;filter:contrast(1.02) saturate(1.05);transform-origin:center center;z-index:0}
-@keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
-.hero-bg.slowzoom{animation:slowZoom 20s ease-in-out infinite alternate}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,7,0.18) 0%, rgba(5,5,7,0.36) 60%);z-index:1}
-
-.hero-left{position:relative;z-index:3;padding:40px 0}
-.hero-eyebrow{color:var(--accent);font-weight:600;letter-spacing:0.8px;text-transform:uppercase;font-size:12px}
-h1{font-size:48px;line-height:1.02;margin:12px 0 8px}
-p.lead{max-width:540px;color:var(--muted);font-size:16px}
-.hero-ctas{margin-top:20px;display:flex;gap:12px}
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid transparent;background:transparent;font-weight:700;cursor:pointer}
-.btn-primary{background:linear-gradient(90deg,var(--accent),#9ec6ff);color:#061018;box-shadow:0 8px 30px rgba(158,198,255,0.06)}
-.btn-ghost{border:1px solid rgba(255,255,255,0.06);color:var(--light);backdrop-filter: blur(6px)}
-
-.hero-right{display:flex;align-items:center;justify-content:center;padding:20px;z-index:3}
-.mini-card{width:360px;border-radius:12px;padding:18px;background:linear-gradient(180deg,var(--glass),transparent);border:1px solid var(--card-border);backdrop-filter: blur(6px)}
-.mini-card h4{margin:0 0 8px}
-.mini-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-
-/* FEATURES */
-.features{padding:60px 0}
-.feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--glass-2);border:1px solid var(--card-border);padding:22px;border-radius:12px;transition:transform .3s ease, box-shadow .28s ease, border-color .28s ease}
-.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6);border-color:rgba(255,77,87,0.12)}
-.card .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(255,77,87,0.08), rgba(158,198,255,0.04));font-weight:700}
-.card h3{margin:12px 0 6px}
-.card p{margin:0;color:var(--muted);font-size:14px}
-
-/* ABOUT */
-.about{padding:44px 0;display:flex;gap:40px;align-items:center}
-.about .copy{flex:1}
-.about .visual{width:360px;height:220px;border-radius:12px;border:1px solid var(--card-border);background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));display:flex;align-items:center;justify-content:center}
-
-/* CONTACT */
-.contact{padding:42px 0}
-.form{max-width:640px;background:transparent;padding:18px;border-radius:12px}
-.field{display:flex;flex-direction:column;margin-bottom:12px}
-label{font-size:13px;color:var(--muted);margin-bottom:6px}
-input[type="text"], input[type="email"], textarea{padding:12px;border-radius:10px;border:1px solid var(--card-border);background:transparent;color:var(--light);outline:none}
-input:focus, textarea:focus{box-shadow:0 8px 30px rgba(158,198,255,0.06);border-color:rgba(158,198,255,0.18)}
-
-footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
-
-/* Animations */
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .65s ease, transform .65s ease}
-.reveal.show{opacity:1;transform:none}
-
-/* Responsive */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr;min-height:84vh}
-  .hero-right{display:none}
-  h1{font-size:38px}
-  .feats-grid{grid-template-columns:1fr}
+/* NAVBAR */
+.navbar{
+  position:fixed;left:0;top:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 48px;z-index:50;
+  background:rgba(0,0,0,0.28);backdrop-filter:blur(8px);
 }
+.logo{font-weight:700;letter-spacing:1px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links li{cursor:pointer}
+.nav-links li.active,.nav-links li:hover{color:#d4af37}
+
+/* BACKGROUND (full screen, fades/zooms) */
+.background{
+  position:fixed;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  transition:opacity 900ms ease, transform 1100ms ease;
+  opacity:1;transform:scale(1);
+  will-change:opacity,transform;
+  filter: saturate(.95);
+}
+
+/* HERO layout */
+.hero{
+  position:relative;z-index:10;height:100vh;display:flex;align-items:center;padding:90px 80px;
+}
+
+/* INFO (left side, centered vertically) */
+.info{
+  width:44%;padding-right:30px;
+}
+.info h1{
+  font-family:"Montserrat",sans-serif;font-size:48px;color:#d4af37;margin-bottom:14px;
+}
+.info p{font-size:18px;color:#e8e8e8;line-height:1.5;max-width:680px}
+.rent-btn{
+  margin-top:22px;padding:12px 30px;border-radius:28px;border:none;background:#d4af37;color:#000;font-weight:700;cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.rent-btn:hover{transform:scale(1.04);box-shadow:0 18px 40px rgba(212,175,55,.18)}
+
+/* GALLERY (right) */
+/* Portrait card sizing: width=160, height=240, gap=20 */
+/* viewport width = 160*3 + 20*2 = 520 */
+.gallery-viewport{
+  position:absolute;right:80px;top:50%;transform:translateY(-50%);
+  width:520px;height:260px;z-index:15;
+  display:flex;align-items:center;gap:12px;
+}
+
+/* tiny frame that hides overflow */
+.gallery-frame{
+  width:520px;height:260px;overflow:hidden;position:relative;
+  border-radius:6px;
+}
+
+/* track holds cards horizontally - remove CSS transition on transform (use GSAP) */
+.gallery-track{
+  display:flex;align-items:center;height:100%;gap:20px;
+  will-change:transform;
+  transform: translateX(0px); /* GSAP will control this */
+}
+
+/* card portrait */
+.card{
+  width:160px;height:240px;border-radius:14px;overflow:hidden;background:#111;flex:0 0 auto;
+  box-shadow:0 12px 30px rgba(0,0,0,0.6);cursor:pointer;position:relative;
+  transform-origin:center center;transition:transform .45s ease,box-shadow .45s,opacity .35s;
+  display:flex;flex-direction:column;
+}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* small overlay title on each card */
+.card .label{
+  position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.45);
+  padding:6px 10px;border-radius:8px;font-weight:600;font-size:13px;color:#fff;
+  backdrop-filter: blur(4px);
+}
+
+/* subtle transform differences for depth (they all share same size now) */
+.card.active{ transform: scale(1.02); box-shadow:0 22px 50px rgba(0,0,0,0.7); }
+.card.left{ transform: scale(0.98); opacity:0.95; }
+.card.right{ transform: scale(0.98); opacity:0.95; }
+.card:not(.active):not(.left):not(.right){ opacity:0.88; filter:brightness(.92); }
+
+/* -- Overlay used for scaling a card up into the background -- */
+.becoming-overlay {
+  position:fixed;
+  left:0;top:0;
+  width:160px; height:240px; /* initial portrait size, JS will set exact position */
+  transform-origin: center center;
+  z-index:60;
+  pointer-events:none;
+  background-size:cover;background-position:center no-repeat;
+  transition: transform 800ms cubic-bezier(.22,.9,.32,1), width 800ms ease, height 800ms ease, left 800ms ease, top 800ms ease, border-radius 800ms ease, filter 800ms ease, opacity 700ms ease;
+  will-change:transform,left,top,width,height,opacity,filter;
+  border-radius:14px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
+  opacity:1;
+}
+
+/* final state when overlay expands to viewport (becomes background) */
+.becoming-overlay.expand {
+  left: 0 !important;
+  top: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  transform: none !important;
+  border-radius: 0 !important;
+  filter: blur(0px) saturate(1) !important;
+  opacity: 1 !important;
+}
+
+/* while overlay is expanding, dim other UI slightly */
+.body-dimming .info { opacity: 0.85; transition: opacity 300ms ease; }
+
+/* buttons */
+.carousel-btn{
+  width:44px;height:44px;border-radius:999px;border:none;background:rgba(0,0,0,0.46);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  transition:transform .18s ease,background .18s;
+  z-index:70;
+}
+.carousel-btn:hover{transform:scale(1.04);background:rgba(0,0,0,0.6)}
+.carousel-btn.left{order:0;margin-right:4px}
+.carousel-btn.right{order:2;margin-left:4px}
+
+/* responsive tweaks */
+@media (max-width:1000px){
+  .info{width:50%}
+  .gallery-viewport{right:28px;width:92%}
+  .gallery-frame{width:420px}
+}
+@media (max-width:780px){
+  .info{display:none}
+  .gallery-viewport{right:18px;bottom:28px;top:auto;transform:none;height:200px;width:92%}
+  .hero{padding-top:80px}
+}
+
+/* fadeUp helper used by JS-controlled inline animation */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
