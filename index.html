@@ -2,139 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DataWing — Minimal Futuristic Landing</title>
-  <meta name="description" content="DataWing — Real-time insights at the speed of intelligence. Minimal, motion-led landing page." />
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lamborghini Rentals — Hero</title>
   <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-inner container">
-      <div class="brand">
-        <div class="logo">DW</div>
-        <div>
-          <div style="font-weight:700">DataWing</div>
-          <div style="font-size:12px;color:var(--muted)">Real-time insights</div>
-        </div>
-      </div>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#contact">Get in touch</a>
-      </div>
-    </div>
+  <nav class="navbar">
+    <div class="logo">LAMBORGHINI RENTALS</div>
+    <ul class="nav-links">
+      <li class="active">Home</li>
+      <li>Models</li>
+      <li>Contact</li>
+    </ul>
   </nav>
 
-  <header class="hero container" id="home">
-    <div class="hero-bg slowzoom" id="heroBg" style="background-image: url('IMG-20251114-WA0002.jpg');"></div>
-    <div class="hero-overlay"></div>
+  <!-- full-screen background that changes with active card -->
+  <div id="bg" class="background" aria-hidden="true"></div>
 
-    <div class="hero-left">
-      <div class="hero-eyebrow reveal">Realtime · Predictive · Fast</div>
-      <h1 class="reveal">Designing insights at the speed of intelligence.</h1>
-      <p class="lead reveal">DataWing helps teams extract real-time signals from streaming data — fast, precise, and beautifully presented. Minimal pipeline overhead, maximum clarity.</p>
-      <div class="hero-ctas reveal">
-        <a class="btn btn-primary" href="#features">Explore</a>
-        <a class="btn btn-ghost" href="#contact">Contact</a>
-      </div>
-    </div>
-
-    <aside class="hero-right">
-      <div class="mini-card reveal">
-        <h4>Realtime Snapshot</h4>
-        <div class="mini-row">
-          <div style="color:var(--muted)">Active streams</div>
-          <div style="font-weight:800">1,248</div>
-        </div>
-        <div class="mini-row" style="margin-top:12px">
-          <div style="color:var(--muted)">Avg latency</div>
-          <div style="font-weight:800">34 ms</div>
-        </div>
-      </div>
+  <main class="hero">
+    <!-- LEFT: Info block -->
+    <aside class="info">
+      <h1 id="carTitle">Lamborghini Aventador</h1>
+      <p id="carDesc">V12 power meets timeless design. The Aventador defines pure performance with iconic lines and raw energy.</p>
+      <button id="rentBtn" class="rent-btn">Rent Now</button>
     </aside>
-  </header>
 
-  <main class="container">
-    <section id="features" class="features">
-      <div class="feats-grid">
-        <div class="card reveal">
-          <div class="icon">Play</div>
-          <h3>Realtime Streaming</h3>
-          <p>Ingest and visualize high-velocity data with sub-second latency.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">Settings</div>
-          <h3>Adaptive Models</h3>
-          <p>Lightweight models that update continuously as data arrives.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">Lock</div>
-          <h3>Enterprise Grade</h3>
-          <p>Secure pipelines, role-based access, and audit-friendly designs.</p>
-        </div>
-      </div>
-    </section>
+    <!-- RIGHT: Carousel viewport (shows exactly 3 portrait cards) -->
+    <section class="gallery-viewport" aria-label="Lamborghini carousel">
+      <button id="prevBtn" class="carousel-btn left" aria-label="Previous">‹</button>
 
-    <section id="about" class="about">
-      <div class="copy reveal">
-        <h2>About DataWing</h2>
-        <p>DataWing is a focused platform for teams that need instant clarity from streaming sources. We design pipelines that stay out of the way and surfaces that guide decision-makers. Minimal overhead, maximum impact.</p>
+      <div class="gallery-frame">
+        <div class="gallery-track" id="track"><!-- JS injects cards --></div>
       </div>
-      <div class="visual reveal">
-        <svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="220" height="120" rx="10" fill="url(#g)" />
-          <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#111827" stop-opacity="0.6"/>
-              <stop offset="1" stop-color="#0b1220" stop-opacity="0.2"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-    </section>
 
-    <section id="services" class="features">
-      <h3 style="margin-bottom:18px">Services</h3>
-      <div class="feats-grid">
-        <div class="card reveal"><h3>Data Streaming</h3><p>Integration with Kafka / Pulsar / Kinesis and socket feeders.</p></div>
-        <div class="card reveal"><h3>Visualization</h3><p>Live dashboards, alerting, and shareable insights.</p></div>
-        <div class="card reveal"><h3>Automation</h3><p>Auto-remediation pipelines and model rollouts.</p></div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h3>Contact</h3>
-      <form class="form reveal" onsubmit="event.preventDefault();alert('Demo: form submitted')">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@company.com" />
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" rows="4" placeholder="Tell us about your project"></textarea>
-        </div>
-        <div style="margin-top:10px">
-          <button class="btn btn-primary">Send</button>
-        </div>
-      </form>
+      <button id="nextBtn" class="carousel-btn right" aria-label="Next">›</button>
     </section>
   </main>
 
-  <footer class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>© <strong>DataWing</strong> 2025</div>
-      <div style="color:var(--muted)">Built with HTML, CSS & JavaScript</div>
-    </div>
-  </footer>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-uX0sGq0kF2s1Z2F6uQpCCYm6mV6V3WcD2n1fZ2x1rZtW1Kk+qQ4K0W4lFRfCpM3t0q3qk9oX3dO5kD1f9kzCew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
