@@ -68,7 +68,7 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
 .card:hover{
   border-color:rgba(255,77,87,0.22);
   box-shadow:0 28px 60px rgba(2,6,23,0.85);
-  animation:smoothElasticBounce 1.1s cubic-bezier(0.68,-0.3,0.265,1.35) forwards;
+  animation:smoothElasticBounce 2.0s cubic-bezier(0.6, -0.4, 0.2, 1.4) forwards;
 }
 
 @keyframes smoothElasticBounce{
