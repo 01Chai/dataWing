@@ -92,3 +92,26 @@ footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0
   h1{font-size:38px}
   .feats-grid{grid-template-columns:1fr}
 }
+
+/* ——————————————————————
+   FULL-PAGE HUMMINGBIRD BACKGROUND
+   —————————————————————— */
+html {
+  background: url('../images/hero_bg.jpg') center center / cover no-repeat fixed;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.80);        /* Dark overlay – perfect readability */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Optional: slightly darken the hero overlay since we already have a global one */
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(5,5,7,0.12) 0%, rgba(5,5,7,0.32) 70%);
+}
