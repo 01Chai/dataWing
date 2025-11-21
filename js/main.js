@@ -36,7 +36,7 @@
 })();
 
 // ====== Card tilt (simple) ======
-(function(){
+/*(function(){
   const cards = document.querySelectorAll('.card');
   cards.forEach(card=>{
     card.addEventListener('mousemove', (ev)=>{
@@ -53,7 +53,7 @@
       card.style.boxShadow = '';
     })
   })
-})();
+})();*/
 
 // Smooth nav tint on scroll
 (function(){
