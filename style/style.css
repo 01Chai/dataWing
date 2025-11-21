@@ -9,7 +9,7 @@
 }
 
 *{box-sizing:border-box}
-html,body{height:100%; margin:0}
+html,body{height:100%;margin:0}
 
 body{
   font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
@@ -21,15 +21,31 @@ body{
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 
-/* NAV */
-.nav{position:fixed;left:0;right:0;top:16px;z-index:60;display:flex;justify-content:center;padding:0 16px}
-.nav-inner{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between}
+/* NAV — now touches the very top */
+.nav{
+  position:fixed;
+  left:0;right:0;
+  top:0;                    /* ← changed from 16px */
+  z-index:60;
+  display:flex;
+  justify-content:center;
+  padding:0 16px;
+  transition:background .3s,backdrop-filter .3s;
+}
+.nav-inner{
+  width:100%;
+  max-width:var(--max-width);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0;           /* ← nice breathing room */
+}
 .brand{display:flex;gap:12px;align-items:center}
 .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#9ec6ff);box-shadow:0 3px 18px rgba(255,77,87,0.08);display:flex;align-items:center;justify-content:center;font-weight:800}
 .nav-links{display:flex;gap:20px;align-items:center}
 .nav-links a{padding:8px 4px;border-radius:8px;font-weight:500;color:var(--muted);transition:color .18s}
 .nav-links a:hover{color:var(--light)}
-.cta{padding:8px 14px;border-radius:10px;background:linear-gradient(90deg, rgba(255,77,87,0.12), rgba(158,198,255,0.04));border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);font-weight:600}
+.cta{padding:8px 14px;border-radius:10px;background:linear-gradient(90deg,rgba(255,77,87,0.12),rgba(158,198,255,0.04));border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);font-weight:600}
 
 /* HERO */
 .hero{min-height:86vh;display:grid;grid-template-columns:1fr 420px;align-items:center;margin-top:28px;position:relative;overflow:hidden}
@@ -50,11 +66,29 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
 .mini-card h4{margin:0 0 8px}
 .mini-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
 
-/* FEATURES & CARDS */
+/* BOUNCY CARDS */
 .features{padding:60px 0}
 .feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--glass-2);border:1px solid var(--card-border);padding:22px;border-radius:12px;transition:transform .3s ease,box-shadow .28s ease,border-color .28s ease}
-.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6);border-color:rgba(255,77,87,0.12)}
+.card{
+  background:var(--glass-2);
+  border:1px solid var(--card-border);
+  padding:22px;
+  border-radius:12px;
+  transition:border-color .28s ease;
+  transform:translateY(0);
+  transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s ease;
+}
+.card:hover{
+  border-color:rgba(255,77,87,0.18);
+  box-shadow:0 24px 50px rgba(2,6,23,0.7);
+  animation:bounceCard 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes bounceCard{
+  0%   {transform:translateY(0)}
+  40%  {transform:translateY(-26px)}
+  65%  {transform:translateY(-10px)}
+  100% {transform:translateY(-16px)}
+}
 .card .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,77,87,0.08),rgba(158,198,255,0.04));font-weight:700}
 .card h3{margin:12px 0 6px}
 .card p{margin:0;color:var(--muted);font-size:14px}
@@ -86,7 +120,7 @@ footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0
   .feats-grid{grid-template-columns:1fr}
 }
 
-/* FULL-PAGE HUMMINGBIRD BACKGROUND */
+/* FULL-PAGE BACKGROUND */
 html{
   background:url('../images/hero_bg.jpg') center center / cover no-repeat fixed;
   min-height:100%;
