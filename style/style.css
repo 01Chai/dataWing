@@ -49,7 +49,7 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
 .mini-card h4{margin:0 0 8px}
 .mini-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
 
-/* CARD HOVER & ENTRANCE — THIS IS THE ONLY PART THAT MATTERS */
+/* FINAL PREMIUM ELASTIC BOUNCE — 100% smooth */
 .features{padding:60px 0}
 .feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
@@ -58,24 +58,25 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
   border:1px solid var(--card-border);
   padding:22px;
   border-radius:12px;
-  transition:all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Only transform is animated → GPU smooth */
+  transform:translateY(0);
+  will-change:transform;
+  transition:border-color .4s ease, box-shadow .5s ease;
 }
 
 .card:hover{
-  transform:translateY(-20px);
   border-color:rgba(255,77,87,0.22);
-  box-shadow:0 28px 60px rgba(2,6,23,0.8);
+  box-shadow:0 28px 60px rgba(2,6,23,0.85);
+  animation:smoothElasticBounce 1.1s cubic-bezier(0.68,-0.3,0.265,1.35) forwards;
 }
 
-/* Scroll-in entrance (keeps working) */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity 0.8s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
+@keyframes smoothElasticBounce{
+  0%     {transform:translateY(0)}
+  38%    {transform:translateY(-28px)}
+  62%    {transform:translateY(-8px)}
+  82%    {transform:translateY(-20px)}
+  100%   {transform:translateY(-14px)}
 }
 
 .card .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,77,87,0.08),rgba(158,198,255,0.04));font-weight:700}
@@ -97,6 +98,10 @@ input:focus,textarea:focus{box-shadow:0 8px 30px rgba(158,198,255,0.06);border-c
 
 footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
 
+/* REVEAL ON SCROLL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform 1.2s cubic-bezier(0.16,1,0.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
 /* RESPONSIVE */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;min-height:84vh}
@@ -105,7 +110,7 @@ footer{padding:24px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0
   .feats-grid{grid-template-columns:1fr}
 }
 
-/* FULL-PAGE BACKGROUND */
+/* FULL-PAGE HUMMINGBIRD */
 html{
   background:url('../images/hero_bg.jpg') center center / cover no-repeat fixed;
   min-height:100%;
