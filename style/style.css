@@ -21,7 +21,7 @@ body{
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 
-/* NAV — full edge */
+/* NAV — full top edge */
 .nav{
   position:fixed;left:0;right:0;top:0;z-index:60;
   display:flex;justify-content:center;padding:0 16px;
@@ -54,7 +54,7 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
 .mini-card h4{margin:0 0 8px}
 .mini-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
 
-/* ULTRA-SMOOTH PREMIUM BOUNCE CARDS */
+/* ULTRA-SMOOTH CARD LIFT (no keyframes on hover = zero stutter) */
 .features{padding:60px 0}
 .feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{
@@ -62,23 +62,29 @@ p.lead{max-width:540px;color:var(--muted);font-size:16px}
   border:1px solid var(--card-border);
   padding:22px;
   border-radius:12px;
-  transition:border-color .3s ease, box-shadow .5s ease;
   transform:translateY(0);
-  /* Apple-grade spring */
-  transition:transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity:0;                    /* for entrance animation */
+  will-change:transform;
+  transition:transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color .4s ease,
+              box-shadow .6s ease;
 }
 .card:hover{
-  border-color:rgba(255,77,87,0.18);
-  box-shadow:0 26px 56px rgba(2,6,23,0.75);
-  transform:translateY(-18px);
-  animation:smoothBounce 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-color:rgba(255,77,87,0.22);
+  box-shadow:0 28px 60px rgba(2,6,23,0.8);
+  transform:translateY(-20px);
 }
-@keyframes smoothBounce{
-  0%     {transform:translateY(0)}
-  38%    {transform:translateY(-26px)}
-  68%    {transform:translateY(-10px)}
-  100%   {transform:translateY(-18px)}
+
+/* Gentle entrance when cards appear */
+.card.reveal.show{
+  opacity:1;
+  animation:cardEnter 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+@keyframes cardEnter{
+  0%   {transform:translateY(40px); opacity:0}
+  100% {transform:translateY(0); opacity:1}
+}
+
 .card .icon{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,77,87,0.08),rgba(158,198,255,0.04));font-weight:700}
 .card h3{margin:12px 0 6px}
 .card p{margin:0;color:var(--muted);font-size:14px}
