@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DataWing — Minimal Futuristic Landing</title>
-  <meta name="description" content="DataWing — Real-time insights at the speed of intelligence. Minimal, motion-led landing page." />
+  <meta name="description" content="DataWing — Real-time insights at the speed of intelligence." />
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css" />
@@ -30,8 +30,8 @@
   </nav>
 
   <header class="hero container" id="home">
-    <!-- Full-page background is now handled in CSS – no duplicate image here -->
-    <div class="hero-bg" id="heroBg"></div>
+    <!-- Transparent layer for parallax + slow zoom only -->
+    <div class="hero-bg slowzoom" id="heroBg"></div>
 
     <div class="hero-left">
       <div class="hero-eyebrow reveal">Realtime · Predictive · Fast</div>
@@ -58,9 +58,7 @@
     </aside>
   </header>
 
-  <!-- Rest of your content stays exactly the same -->
   <main class="container">
-    <!-- ... all your sections (features, about, services, contact) ... -->
     <section id="features" class="features">
       <div class="feats-grid">
         <div class="card reveal">
