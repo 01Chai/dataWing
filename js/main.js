@@ -2,7 +2,7 @@
 (function(){
   const hero = document.getElementById('heroBg');
   const heroWrap = document.querySelector('.hero');
-  if(!hero) return;
+  if(!hero || !heroWrap) return;           // ← safe check (prevents crash)
 
   function onMove(e){
     const rect = heroWrap.getBoundingClientRect();
@@ -12,11 +12,9 @@
     const ty = y * 10;
     hero.style.transform = `translate(${tx}px, ${ty}px) scale(1.04)`;
   }
-
   function onLeave(){
     hero.style.transform = `translate(0px,0px) scale(1.02)`;
   }
-
   heroWrap.addEventListener('mousemove', onMove);
   heroWrap.addEventListener('mouseleave', onLeave);
 })();
@@ -35,8 +33,11 @@
   document.querySelectorAll('.reveal').forEach(node=>obs.observe(node));
 })();
 
-// ====== Card tilt (simple) ======
-/*(function(){
+// ====== Card tilt (simple) — COMMENTED OUT ON PURPOSE ======
+// We removed this because it was fighting with the smooth CSS lift
+// Uncomment the whole block below if you ever want the 3D tilt back
+/*
+(function(){
   const cards = document.querySelectorAll('.card');
   cards.forEach(card=>{
     card.addEventListener('mousemove', (ev)=>{
@@ -53,11 +54,14 @@
       card.style.boxShadow = '';
     })
   })
-})();*/
+})();
+*/
 
-// Smooth nav tint on scroll
+// ====== Smooth nav tint on scroll ======
 (function(){
   const nav = document.querySelector('.nav');
+  if(!nav) return;
+
   window.addEventListener('scroll', ()=>{
     if(window.scrollY > 40){
       nav.style.backdropFilter = 'blur(6px)';
