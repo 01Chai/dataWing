@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none}
 
 /* HERO */
 .hero{min-height:86vh;display:grid;grid-template-columns:1fr 420px;align-items:center;margin-top:28px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center center;filter:contrast(1.02) saturate(1.05);transform-origin:center center;z-index:0}
+.hero-bg{position:absolute;inset:0;/*background-size:cover;background-position:center center;filter:contrast(1.02) saturate(1.05);transform-origin:center center;*/z-index:0}
 @keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
 .hero-bg.slowzoom{animation:slowZoom 20s ease-in-out infinite alternate}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,7,0.18) 0%, rgba(5,5,7,0.36) 60%);z-index:1}
